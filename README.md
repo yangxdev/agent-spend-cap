@@ -13,24 +13,15 @@ Estimate the worst-case cost of an unattended coding-agent run and copy a spend-
 <!-- /greenlight:live -->
 
 <!-- greenlight:screenshots -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/desktop-dark.png">
-  <img alt="agent-spend-cap, first screen on a desktop browser" src="docs/screenshots/desktop-light.png">
-</picture>
+<img alt="agent-spend-cap, first screen on a desktop browser" src="docs/screenshots/desktop-light.png">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/section-dark.png">
-  <img alt="agent-spend-cap, the main view" src="docs/screenshots/section-light.png">
-</picture>
+<img alt="agent-spend-cap, the main view" src="docs/screenshots/section-light.png">
 
 <p align="center">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/mobile-dark.png">
-  <img alt="agent-spend-cap on a phone" src="docs/screenshots/mobile-light.png" width="320">
-</picture>
+<img alt="agent-spend-cap on a phone" src="docs/screenshots/mobile-light.png" width="320">
 </p>
 
-<sub>Screenshots of the live site, refreshed on every deploy. They follow your GitHub theme.</sub>
+<sub>Screenshots of the live site, refreshed on every deploy.</sub>
 <!-- /greenlight:screenshots -->
 
 ## What it does
