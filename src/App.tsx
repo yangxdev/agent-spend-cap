@@ -1,84 +1,37 @@
-import { Accent, Hero, Section, SiteFooter, SiteHeader } from './components/shell/index.ts';
-import { buttonClass, Cell, CellGrid, DetailList, Note } from './components/ui/index.ts';
-import { HealthBadge } from './features/health/HealthBadge.tsx';
+import { Accent, Hero, SiteFooter, SiteHeader } from './components/shell/index.ts';
+import { Note } from './components/ui/index.ts';
+import { CapConfigSection } from './features/cap-config/CapConfigSection.tsx';
+import { EstimateSection } from './features/estimate/EstimateSection.tsx';
+import { LimitsSection } from './features/limits/LimitsSection.tsx';
 
-/**
- * The scaffold page. It shows the house anatomy (header, hero, numbered sections, footer) so the Factory starts
- * from the right structure; it replaces the content by implementing blueprint.md, not the structure.
- */
 export default function App() {
   return (
     <div className="min-h-dvh">
       <SiteHeader
         nav={[
-          { href: '#how', label: 'How it works' },
-          { href: '#status', label: 'Status' },
+          { href: '#estimate', label: 'Estimate' },
+          { href: '#cap-config', label: 'Cap config' },
+          { href: '#limits', label: 'Limits' },
         ]}
       />
 
       <main>
         <Hero
-          eyebrow={<HealthBadge />}
           title={
             <>
-              Scaffolded and <Accent>waiting</Accent> for its blueprint.
+              Know the worst case before the agents <Accent>start</Accent>.
             </>
           }
-          lede="The Factory replaces this page by implementing blueprint.md, keeping the header, the numbered sections and the footer."
-          actions={
-            <>
-              <a href="#how" className={buttonClass('primary')}>
-                See the structure
-              </a>
-              <a href="#status" className={buttonClass('ghost')}>
-                Check the API
-              </a>
-            </>
-          }
-          footnote={
-            <Note>Nothing here is stored. This page exists only until the first build.</Note>
-          }
+          lede="Type your model prices and the shape of the run. You get typical and worst-case cost, and a cap config to copy."
         />
-
-        <Section id="how" index="01" label="Structure" title="One page, ruled like a document">
-          <CellGrid>
-            <Cell index="01" title="A rail per section">
-              Every section carries its number and name on the left, with the content a third of the
-              way in.
-            </Cell>
-            <Cell index="02" title="Hairlines, not cards">
-              Rows are separated by rules, cells share their borders, corners are square.
-            </Cell>
-            <Cell index="03" title="One accent">
-              Vermilion marks the indices, the product mark and one word in the headline. Buttons
-              are ink.
-            </Cell>
-          </CellGrid>
-        </Section>
-
-        <Section
-          id="status"
-          index="02"
-          label="Status"
-          tone="zone"
-          title="What the scaffold ships with"
-        >
-          <DetailList
-            onZone
-            items={[
-              {
-                label: 'Health check',
-                value: "GET /api/health, the Publisher's smoke test. Keep it.",
-              },
-              { label: 'Server', value: 'Cloudflare Worker · R2 · MongoDB Atlas' },
-              { label: 'Front end', value: 'React 19 · Vite · Redux Toolkit · Tailwind v4' },
-            ]}
-          />
-        </Section>
+        <EstimateSection />
+        <CapConfigSection />
+        <LimitsSection />
       </main>
 
       <SiteFooter>
-        <Note>Built by Greenlight from a public idea. Corrections welcome.</Note>
+        <Note>Nothing leaves your browser. The only thing stored is your theme choice.</Note>
+        <Note>It estimates and writes text. It cannot stop a run.</Note>
       </SiteFooter>
     </div>
   );

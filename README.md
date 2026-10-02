@@ -6,7 +6,7 @@
 
 # agent-spend-cap
 
-[One sentence: what it does, for whom. The same as SITE_DESCRIPTION in src/app/site.ts.]
+Estimate the worst-case cost of an unattended coding-agent run and copy a spend-cap config for your own tool.
 
 <!-- greenlight:live -->
 <!-- /greenlight:live -->
@@ -16,22 +16,27 @@
 
 ## What it does
 
-- [3 to 5 bullets from the visitor's side: what they can do with it, not how it is built.]
+- Estimates the typical cost of an agent run from prices and a run shape you type.
+- Shows the worst case, where every agent retries, and a "Reported fan-out" row that applies the same settings to 826 agents.
+- Writes a max-turns value, a max-subagents value and a spend-stop hook for Claude Code, Codex or a generic setup.
+- Keeps every input in the URL, so an estimate is a link you can share.
 
 ## How to use it
 
-1. [The core flow in 2 to 4 numbered steps, in the words the page itself uses.]
+1. Type the input and output price per million tokens and the run shape, or press "Example run".
+2. Read Typical, Worst case and Reported fan-out under "01 Estimate".
+3. Under "02 Cap config", pick a tool and optionally set a spend cap.
+4. Press "Copy config" or "Copy link".
+
+The config templates are unchecked examples. Check their names and flags against your tool's docs before relying on them.
 
 ## Privacy
 
-[What it stores and where, plainly: "Nothing leaves your browser; your ticks live in localStorage", or which data the
-server keeps and for how long. No accounts, no tracking cookies; page views are counted by Cloudflare Web Analytics,
-which sets no cookies.]
+Nothing leaves your browser: there is no account, no server storage and no price feed. The query string holds your inputs, and the only thing kept in `localStorage` is your theme choice. Page views are counted by Cloudflare Web Analytics, which sets no cookies.
 
 ## Contributing
 
-[How a visitor can help: open an issue for a mistake or an idea, and, if the product has a data file people can
-extend, which file to edit in a pull request and what a good entry looks like.]
+Open an issue for a wrong number, an out-of-date config template or an idea. For a template fix, edit `src/features/cap-config/templates.ts`: a good entry names real settings and flags, and sets `verifiedOn` to the date you checked them against the tool's docs.
 
 ## Run it locally
 
