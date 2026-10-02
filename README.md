@@ -9,9 +9,28 @@
 Estimate the worst-case cost of an unattended coding-agent run and copy a spend-cap config for your own tool.
 
 <!-- greenlight:live -->
+**[Open agent-spend-cap → agent-spend-cap.yangxdev.workers.dev](https://agent-spend-cap.yangxdev.workers.dev)**
 <!-- /greenlight:live -->
 
 <!-- greenlight:screenshots -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/desktop-dark.png">
+  <img alt="agent-spend-cap, first screen on a desktop browser" src="docs/screenshots/desktop-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/section-dark.png">
+  <img alt="agent-spend-cap, the main view" src="docs/screenshots/section-light.png">
+</picture>
+
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/mobile-dark.png">
+  <img alt="agent-spend-cap on a phone" src="docs/screenshots/mobile-light.png" width="320">
+</picture>
+</p>
+
+<sub>Screenshots of the live site, refreshed on every deploy. They follow your GitHub theme.</sub>
 <!-- /greenlight:screenshots -->
 
 ## What it does
