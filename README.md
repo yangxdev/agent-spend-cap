@@ -34,9 +34,9 @@ Estimate the worst-case cost of an unattended coding-agent run and copy a spend-
 ## How to use it
 
 1. Type the input and output price per million tokens and the run shape, or press "Example run".
-2. Read Typical, Worst case and Reported fan-out under "01 Estimate".
-3. Under "02 Cap config", pick a tool and optionally set a spend cap.
-4. Press "Copy config" or "Copy link".
+2. Read Typical, Worst case and Reported fan-out in the "Estimate" pane.
+3. In the "Cap config" pane, pick a tool and optionally set a spend cap.
+4. Press "Copy config", or "Copy link" at the top of the page.
 
 The config templates are unchecked examples. Check their names and flags against your tool's docs before relying on them.
 
