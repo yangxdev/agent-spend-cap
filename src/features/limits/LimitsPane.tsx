@@ -1,5 +1,4 @@
-import { Section } from '../../components/shell/index.ts';
-import { DetailList } from '../../components/ui/index.ts';
+import { DetailList, Pane } from '../../components/ui/index.ts';
 
 const LIMITS = [
   {
@@ -26,16 +25,15 @@ const LIMITS = [
   },
 ];
 
-export function LimitsSection() {
+export function LimitsPane({ className }: { className?: string }) {
   return (
-    <Section
-      id="limits"
-      index="03"
+    <Pane
       label="Limits"
-      title="What the numbers leave out"
-      lede="Check these before relying on an estimate."
+      aside="Check these before relying on an estimate."
+      flush
+      className={className}
     >
       <DetailList items={LIMITS} />
-    </Section>
+    </Pane>
   );
 }

@@ -1,7 +1,6 @@
-import { useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks.ts';
-import { Section } from '../../components/shell/index.ts';
-import { Button, EmptyState, Field, Note, Segmented } from '../../components/ui/index.ts';
+import { Button, EmptyState, Field, Note, Pane, Segmented } from '../../components/ui/index.ts';
+import type { CopyApi } from '../../lib/useCopy.ts';
 import {
   selectEstimate,
   selectFieldErrors,
@@ -15,41 +14,19 @@ import { TEMPLATES } from './templates.ts';
 
 const TOOL_OPTIONS = TEMPLATES.map((t) => ({ value: t.id, label: t.label }));
 
-export function CapConfigSection() {
+export function CapConfigPane({ copy, preRef }: Pick<CopyApi, 'copy' | 'preRef'>) {
   const dispatch = useAppDispatch();
   const raw = useAppSelector(selectRaw);
   const errors = useAppSelector(selectFieldErrors);
   const inputs = useAppSelector(selectInputs);
   const result = useAppSelector(selectEstimate);
-  const [status, setStatus] = useState('');
-  const preRef = useRef<HTMLPreElement>(null);
 
   const template = TEMPLATES.find((t) => t.id === raw.tool) ?? TEMPLATES[0];
   const config =
     template && inputs && result ? renderTemplate(template, capValues(inputs, result)) : null;
 
-  function selectText() {
-    const pre = preRef.current;
-    if (!pre) return;
-    const range = document.createRange();
-    range.selectNodeContents(pre);
-    const selection = window.getSelection();
-    selection?.removeAllRanges();
-    selection?.addRange(range);
-  }
-
-  async function copy(text: string, done: string) {
-    try {
-      await navigator.clipboard.writeText(text);
-      setStatus(done);
-    } catch {
-      selectText();
-      setStatus('Clipboard unavailable. The text is selected: press Ctrl+C or Cmd+C.');
-    }
-  }
-
   return (
-    <Section id="cap-config" index="02" label="Cap config" title="Copy a cap config" tone="zone">
+    <Pane label="Cap config">
       {template && config ? (
         <div className="space-y-6">
           <Segmented
@@ -82,24 +59,18 @@ export function CapConfigSection() {
                 : "Unchecked example. Names and flags may be out of date, so check them against the tool's docs before relying on this."}
             </Note>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Button variant="primary" onClick={() => void copy(config, 'Copied')}>
+          <div>
+            <Button variant="ghost" onClick={() => void copy(config, 'Copied')}>
               Copy config
-            </Button>
-            <Button onClick={() => void copy(window.location.href, 'Link copied')}>
-              Copy link
             </Button>
           </div>
         </div>
       ) : (
         <EmptyState
           title="Nothing to generate yet"
-          body="Fill in the estimate above, or load the example run."
+          body="Fill in the inputs, or load the example run."
         />
       )}
-      <p role="status" className="mt-4 min-h-6 font-mono text-small text-ink-soft">
-        {status}
-      </p>
-    </Section>
+    </Pane>
   );
 }
