@@ -15,8 +15,6 @@ Estimate the worst-case cost of an unattended coding-agent run and copy a spend-
 <!-- greenlight:screenshots -->
 <img alt="agent-spend-cap, first screen on a desktop browser" src="docs/screenshots/desktop-light.png">
 
-<img alt="agent-spend-cap, the main view" src="docs/screenshots/section-light.png">
-
 <p align="center">
 <img alt="agent-spend-cap on a phone" src="docs/screenshots/mobile-light.png" width="320">
 </p>
